@@ -13,6 +13,12 @@ endif
 
 # Combine the various modules to make one big cpio file
 $(BUILD)/combined.initrd: $(INITRD_PARTS)
+
+ifndef PART3_SIZE_MEGS
 	cat $(DEBIAN).lzma $(filter-out $(DEBIAN).lzma,$(INITRD_PARTS)) >$@
+endif
+ifdef PART3_SIZE_MEGS
+	cat $(filter-out $(DEBIAN).lzma,$(INITRD_PARTS)) >$@
+endif
 CLEAN_FILES += $(BUILD)/combined.initrd
 

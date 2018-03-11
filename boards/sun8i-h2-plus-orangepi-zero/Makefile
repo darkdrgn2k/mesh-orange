@@ -5,6 +5,10 @@
 DEBIAN_VER = stretch
 DEBIAN_ARCH = armhf
 
+PART2_SIZE_MEGS ?= 1000 # reserved for swap
+PART3_SIZE_MEGS ?= 1000 # ext2 root
+
+
 # which uboot and device tree is this being built for
 ARMBIAN_UBOOT_PKG = linux-u-boot-orangepizero-default=5.31
 UBOOT = linux-u-boot-orangepizero_5.31_armhf
