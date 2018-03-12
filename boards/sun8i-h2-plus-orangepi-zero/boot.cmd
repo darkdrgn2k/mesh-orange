@@ -44,10 +44,10 @@ for overlay_file in ${overlays}; do
         fi
 done
 
-load ${devtype} 0 ${ramdisk_addr_r} /boot/uInitrd || load ${devtype} 0 ${ramdisk_addr_r} uInitrd
+#load ${devtype} 0 ${ramdisk_addr_r} /boot/uInitrd || load ${devtype} 0 ${ramdisk_addr_r} uInitrd
 load ${devtype} 0 ${kernel_addr_r} /boot/zImage || load ${devtype} 0 ${kernel_addr_r} zImage
 
-bootz ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}
+bootz ${kernel_addr_r} - ${fdt_addr_r}
 
 # Recompile with:
 # mkimage -C none -A arm -T script -d /boot/boot.cmd /boot/boot.scr

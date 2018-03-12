@@ -12,6 +12,8 @@ export CONFIGDIRS
 
 ifndef PART3_SIZE_MEGS
 INITRD_PARTS += $(DEBIAN).lzma
+else
+SD_PARTS +=  $(DEBIAN).lzma
 endif
 
 # Standardised directory names
